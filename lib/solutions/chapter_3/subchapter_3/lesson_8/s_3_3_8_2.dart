@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 bool isPrime(int input) {
-  // Lösung hier einfügen
-  throw UnimplementedError();
+  if (input <= 1) return false; // 0 und 1 sind keine Primzahlen
+  if (input <= 3) return true;  // 2 und 3 sind Primzahlen
+
+  int roundedAmount = input ~/ 2;
+  for (int i = 2; i <= roundedAmount; i++) {
+    if (input % i == 0) return false; // Teilbar → keine Primzahl
+  }
+  return true;
 }
 
 class S3382 extends StatefulWidget {
