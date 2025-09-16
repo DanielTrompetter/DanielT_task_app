@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 
 int multiplyAdvanced(int a, int b) {
   // Lösung hier einfügen
-  throw UnimplementedError();
+  if (a==0 || b == 0) 
+    return 0;
+
+  bool add = (a>0 && b<0) || (a<0 && b>0) ? false : true; // Vorzeichen prüfen
+  int result = 0;
+  for(int i=0; i < a.abs(); i++) 
+  {
+    result = add? result + b.abs() : result - b.abs();
+  }
+  return result;
 }
 
 class S3388 extends StatefulWidget {

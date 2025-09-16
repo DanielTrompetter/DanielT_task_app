@@ -2,7 +2,28 @@ import 'package:flutter/material.dart';
 
 bool isAnagram(String word1, String word2) {
   // Lösung hier einfügen
-  throw UnimplementedError();
+  var word1List = word1.toLowerCase().split('');
+  var word2List = word2.toLowerCase().split('');
+
+  // Sortiere die Buchstaben für die spätere Loop um 'contains' zu vermeiden
+  word1List.sort();
+  word2List.sort();
+
+  //Ein Palindrom setzt voraus dass beide Wörter die gleiche Länge haben!
+  if (word1List.length != word2List.length) 
+  {
+    return false;
+  }
+
+  //Und für ein Palindrom müssen beide Wörte exakt dieselben Buchstaben enthalten!
+  for (var i = 0; i < word1List.length; i++) 
+  {
+    if (word1List[i] != word2List[i]) 
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
 class S3386 extends StatefulWidget {

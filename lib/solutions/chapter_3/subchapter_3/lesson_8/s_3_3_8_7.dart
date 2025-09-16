@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,18 @@ import 'package:flutter/material.dart';
 /// It returns the PIN as a string.
 String hackPin() {
   // Lösung hier einfügen
-  throw UnimplementedError();
+  String pin = "";
+  Random random = Random();
+  do
+  {
+    int value = random.nextInt(10000)-1;  // -1 damit 9999 auch möglich ist
+    pin = value.toString();
+    while (pin.length < 4) 
+    {
+      pin = "0" + pin; // add leading zeros
+    }
+  }while(!_isPinCorrect(pin));
+  return pin;
 }
 
 // ignore: unused_element

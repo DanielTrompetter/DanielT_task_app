@@ -2,7 +2,24 @@ import 'package:flutter/material.dart';
 
 bool isPalindrome(String input) {
   // Lösung hier einfügen
-  throw UnimplementedError();
+  bool isPalindrom = false;
+  List<String> charList = input.split('');                    // Konvertierung von input in Liste
+  List<String> reversedCharList = charList.reversed.toList(); // Umkehrung von charList
+
+  // Vergleich der beiden Listen
+  if (charList.length == reversedCharList.length)  // Paranoia Check ob beide wirklich gleich lang sind!
+  {
+    isPalindrom = true;
+    for (int i = 0; i < charList.length; i++)       //und dann vergleichen beider Listen
+    {
+      if (charList[i].toLowerCase() != reversedCharList[i].toLowerCase())  // Schreibweise ignorieren!
+      {
+        isPalindrom = false;
+        break;
+      }
+    }
+  }
+  return isPalindrom;
 }
 
 class S3385 extends StatefulWidget {
